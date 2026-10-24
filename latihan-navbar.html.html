@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img" href="yadikuy.png">
+    <title>Latihan Navbar</title>
+    <style>
+       *{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       }
+
+       body{
+        background-color: #e3d3b8;
+       } 
+
+       .navbar{
+        width: 100%;
+        height: 70px;
+        background-color: #fffdf8;
+        display: flex;
+        padding-left: 40px;
+        border-radius: 30px;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 2px 2px 5px rgba(82, 62, 38, 0.25);
+
+       }
+
+       .menu{
+        width: 100px;
+        height: 70px;
+        background-color: transparent;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+       }
+       
+       .menu:hover{
+        background-color: #d8c09c;
+        border-radius: 30px;
+        color: #3b2a1e;
+          transform: scale(0.80);
+       }
+
+        .btnNav{
+          width: 60%;
+          height: 70px;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          gap: 10px;
+          margin-right: 40px;
+            transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1) ease;
+        }
+
+      .btnNav button{
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background-color: #e8d5b5;
+        border:none;
+        font-size: 15px;
+          transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+      }
+
+      .btnNav button:hover{
+        background-color: #c9a66b;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #3b2a1e;
+        transform: scale(1.05);
+      }
+
+      .hero{
+        box-sizing: border-box;
+        width: 100%;
+        height: 500px;
+        background-color: #f6ecda;
+        border-radius: 15px;
+        margin-top: 30px;
+        padding: 15px;
+        color: #5a3e2b;
+
+      }
+
+      .hero p{
+        margin-top: 30px;
+        line-height: 1;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      .hero_1{
+        margin-top: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        height: 70px;
+       
+      }
+      
+      .hero_1 input{
+        width: 260px;
+        height: 40px;
+        color: #3b2a1e;
+        border-radius: 50px 0 50px 0;
+        border: none;
+        border-radius: 15px;
+        margin-left: 20px;
+        transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+
+      }
+
+      .hero_1 input:hover{
+        cursor: pointer;
+        color: #3b2a1e;
+        transform: scale(1.05);
+      }
+
+      .kelas{
+        width: 180px;
+        height: 37px;
+         border-radius: 15px;
+        background-color: #c9a66b;
+        border:none;
+          transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+          
+      }
+
+      .kelas:hover{
+        background-color: #b88a5a;
+        cursor: pointer;
+        color: #3b2a1e;
+        transform: scale(1.05);
+
+      }
+
+      .cari{
+        width: 38px;
+        height: 37px;
+        border: none;
+         border-radius: 0 50px 50px 0;
+        background-color: #c9a66b;
+        transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+      }
+
+      .cari:hover{
+        background-color: #b88a5a;
+        cursor: pointer;
+        color: #3b2a1e;
+        transform: scale(1.05);
+        
+      }
+
+      .card-kelas{
+       width: 100%;
+       height: 600px;
+       background-color: #f6ecda;
+       box-sizing: border-box;
+       border-radius: 15px;
+       margin-top: 30px;
+       display: flex;
+       gap: 15px;
+       justify-content: space-between;
+       align-items: center;
+       padding: 40px;
+       box-shadow: 2px 2px 5px rgba(82, 62, 38, 0.25);
+       
+      }
+
+      .card{
+        box-sizing: border-box;
+        margin-top: 20px;
+        width: 400px;
+        height: 500px;
+        background-color: #f3e8d4;
+        border-radius: 20px;
+        border: 1px solid #c9a66b;
+        box-shadow: 2px 2px 5px rgba(82, 62, 38, 0.25);
+        transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+      }
+
+      .card:hover{
+        background-color: #ead8b8;
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+
+      .card-img{
+        width: 100%;
+        height: 200px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        padding: 30px;
+      }
+
+      .card-img img{
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 2px 2px 5px rgba(82, 62, 38, 0.25);
+         transition: transform 0.4s cubic-bezier(0.2,0.8 , 0.2 ,1);
+      }
+       
+      .card-img img:hover{
+        color: #3b2a1e;
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+
+       .card-img h3{
+        text-align: center;
+        margin-top: 10px;
+        color: #5a3e2b;
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      } 
+
+     .pengertian{
+      line-height: 1,3;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 15px;
+     }
+    
+     .btnLihat{
+      width: 100%;
+      height: 30px;
+      border: none;
+      border-radius: 15px;
+       color: #f6ecda;
+      background-color: #5a3e2b;
+      font-size: 15px;
+     }
+
+     .btnLihat:hover{
+      background-color: #c9a66b;
+      color: #3b2a1e;
+      cursor: pointer;
+     }
+
+     .box-gallery{
+      width: 100%;
+      height: 1000px;
+      border-radius: 20px 20px 0 0;
+      box-sizing: border-box;
+      background-color:#f6ecda;
+      padding: 20px;
+      margin-top: 20px;
+     }
+
+     .text-gallery{
+      box-sizing: border-box;
+      width: 100%;
+      height: 50px;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 1000;
+     }
+
+     .box-photo{
+      box-sizing: border-box;
+      width: 100%;
+      height: 650px;
+      padding: 50px;
+      background-color: transparent;
+      display: grid;
+      grid-template-columns: repeat(3 , 1fr);
+      gap: 20px;
+     }
+
+     .photo{
+      min-width: 0;
+      height: 250px;
+      background-color: #f3e8d4;
+      border-radius: 10px;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2 ,1);
+     }
+
+     .photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+     }
+
+     .photo:hover{
+      transform: rotate(360deg);
+     }
+
+     .footer{
+      box-sizing: border-box;
+      width: 100%;
+      height: 200px;
+      background-color: #c9a66b;
+      text-align: center;
+      padding: 20px;
+      font-size: 19px;
+     }
+</style>
+
+</head>
+
+   <body>
+      <!--Navbar-->
+          <div class="navbar">
+
+              <div class="menu">Home</div>
+              <div class="menu">About</div>
+              <div class="menu">Product</div>
+              <div class="menu">Contact</div>
+
+              <div class="btnNav">
+                  <button>Login</button>
+                  <button>Daftar</button>
+              </div>
+
+          </div>
+
+    <!--Halaman Utama-->
+
+          <div class="hero">
+
+                             <!--tulisan hero p-->
+
+                           <p>Wilujeung Sumping<br>
+                           Di Website Jurusan<br>
+          
+                           Pengembangan Perangkat<br>
+                           Lunak dan gim
+                      </p>                       
+                    
+                    
+                   
+                    
+                    <!--Search-->
+
+                      <div class="hero_1">
+                        <button class="kelas">Lihat kelas</button>
+                        <input type="text" name="text" placeholder="cari...">
+                        <button class="cari">Cari</button>
+                      </div>
+              
+          </div>
+    
+    <!--Section card kelas-->
+    
+
+          <div class="card-kelas">
+
+                  <!--Card 1-->
+
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="Screenshot 2026-10-15 115124.png">
+                      <h3>Cyber Security</h3>
+                      <p class="pengertian">Cyber Security atau keamanan siber adalah bidang teknologi informasi yang berfokus pada
+                         perlindungan sistem komputer, jaringan, aplikasi, dan data dari berbagai ancaman digital, seperti peretasan,
+                          pencurian data, virus komputer, dan akses tanpa izin. Cyber security bertujuan untuk menjaga kerahasiaan, 
+                          keutuhan, dan ketersediaan informasi agar tetap aman dari pihak yang tidak bertanggung jawab. Penerapan cyber security dapat dilakukan melalui penggunaan kata sandi yang kuat, autentikasi dua faktor, antivirus, firewall,
+                           serta enkripsi data. Contoh penerapannya adalah melindungi akun media sosial dari peretasan, mengamankan data pengguna 
+                           pada website, dan menjaga keamanan sistem perbankan digital
+                          </p>
+                           <button class="btnLihat">Lihat Selengkapnya</button>
+                            
+            
+                    </div>
+                  </div>
+
+                  <!--Card 2-->
+
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="web.png" width="100%" height="100%  ">
+                      <h3>Web Development</h3>
+                      <p class="pengertian">Web Development adalah proses merancang, membuat, mengembangkan, menguji, dan memelihara website atau aplikasi berbasis web agar dapat berfungsi sesuai kebutuhan pengguna. Web development mencakup beberapa bagian, yaitu front-end development yang berfokus pada
+                         tampilan dan interaksi pengguna, back-end development yang mengelola proses di balik layar seperti server dan pengolahan data, serta full-stack development yang menggabungkan keduanya. Dalam proses pengembangannya, web developer menggunakan berbagai teknologi, seperti HTML untuk menyusun
+                          struktur halaman, CSS untuk mengatur tampilan,
+                          JavaScript untuk menambahkan interaksi, serta bahasa dan teknologi lainnya untuk mengelola server dan database. Contoh hasil web development adalah website sekolah, toko online, aplikasi
+                           perpustakaan digital, sistem absensi, dan website portofolio.</p>
+                        <button class="btnLihat">Lihat Selengkapnya</button>
+                            
+                    </div>
+                  </div>
+            
+                  <!--Card 3-->
+
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="dveloper.png">
+                      <h3>Web Developer</h3>
+                      <p class="pengertian">Web Developer adalah seseorang yang memiliki keterampilan dalam membuat, mengembangkan, menguji, dan memelihara website atau aplikasi berbasis web menggunakan berbagai bahasa pemrograman dan teknologi web.
+                         Seorang web developer bertanggung jawab memastikan website memiliki tampilan yang baik, berfungsi dengan benar, mudah digunakan, aman, dan dapat diakses melalui berbagai perangkat, seperti komputer, laptop, dan smartphone. Web developer memiliki
+                          beberapa jenis, yaitu front-end developer yang mengembangkan tampilan website, back-end developer yang menangani server, database, dan logika aplikasi, serta full-stack developer yang menguasai pengembangan front-end dan back-end. Untuk menjadi 
+                        web developer, seseorang perlu mempelajari HTML, CSS, JavaScript, pengelolaan database, serta penggunaan alat pengembangan seperti Visual Studio Code dan Git. Contoh pekerjaan web developer adalah membuat website perusahaan, mengembangkan aplikasi 
+                        pembelajaran online, membangun sistem pemesanan, dan membuat website portofolio pribadi.</p>
+                        <button class="btnLihat">Lihat Selengkapnya</button>
+                    </div>
+                  </div>
+
+          </div>
+
+          <!--Galery-->
+        
+          <div class="box-gallery">
+
+               <div class="text-gallery">
+                <h2>Gallery</h2>
+               </div>
+               
+               <!--foto-->
+
+               <div class="box-photo">
+                    <div class="photo">
+                      <img src="foto-1.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-2.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-3.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-4.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-5.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-6.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-7.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-8.png">
+                    </div>
+                    <div class="photo">
+                      <img src="foto-9.png">
+                    </div>
+               </div>
+
+          </div>
+
+          <div class="footer">
+           <p>
+            Renaissan Addakhil Ardia <br>
+           X PPLG 2<br>
+           @Copyright 2026
+           </p>
+          </div>
+
+   </body>
+</html>
